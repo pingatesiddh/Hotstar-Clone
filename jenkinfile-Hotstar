@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'https://github.com/manishaacharya111/Project3-Hotstar-Clone.git'
+                git branch: 'main', url: 'https://github.com/pingatesiddh/Hotstar-Clone.git'
             }
         }
         stage("Sonarqube Analysis "){
@@ -61,8 +61,8 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
                        sh "docker build -t hotstar ."
-                       sh "docker tag hotstar merry211/hotstar:latest "
-                       sh "docker push merry211/hotstar:latest"
+                       sh "docker tag hotstar siddhdocker/hotstar:latest "
+                       sh "docker push siddhdocker/hotstar:latest"
                     }
                 }
             }
@@ -71,9 +71,9 @@ pipeline{
             steps {
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
-                       sh 'docker-scout quickview merry211/hotstar:latest'
-                       sh 'docker-scout cves merry211/hotstar:latest'
-                       sh 'docker-scout recommendations merry211/hotstar:latest'
+                       sh 'docker-scout quickview siddhdocker/hotstar:latest'
+                       sh 'docker-scout cves siddhdocker/hotstar:latest'
+                       sh 'docker-scout recommendations siddhdocker/hotstar:latest'
                    }
                 }
             }
