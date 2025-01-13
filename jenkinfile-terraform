@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git Clone') {
             steps {
-                git branch: 'main', url: 'https://github.com/manishaacharya111/Project3-Hotstar-Clone.git'
+                git branch: 'main', url: 'https://github.com/pingatesiddh/Hotstar-Clone.git'
             }
         }
         
